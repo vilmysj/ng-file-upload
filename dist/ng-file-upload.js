@@ -678,7 +678,8 @@ ngFileUpload.directive('ngfSelect', ['$parse', '$timeout', '$compile', 'Upload',
     var initialTouchStartY = 0;
 
     function clickHandler(evt) {
-      if (elem.attr('disabled') || attrGetter('ngfSelectDisabled', scope)) return false;
+      if (elem.attr('disabled')) return false;
+      if (attrGetter('ngfSelectDisabled', scope)) return true;
 
       var r = handleTouch(evt);
       if (r != null) return r;
